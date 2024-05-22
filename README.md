@@ -19,6 +19,5 @@
 ![Image alt](https://github.com/Rikudokon/OPI/blob/main/Diagram_IDEF0.png)
   
 ## Технология
-Язык программирование: С++
-  
+Язык программирование: С++  
 Среда разработчика: VisualStudio 2022
