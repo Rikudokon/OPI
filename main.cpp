@@ -9,15 +9,15 @@ using namespace std;
 
 int main() 
 {
-	int NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel;
+	int NumberOfPlayers, PlayerMaxLevel, RedChipsLevel;
 	bool NewCounter;
 	do
 	{
 		bool InputNumbersSuccessfully = false;
-		InputData(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputNumbersSuccessfully);
+		InputData(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputNumbersSuccessfully);
 		if (InputNumbersSuccessfully) 
 		{
-			cout << "The minimum number of Chips that must be prepared for the game: " << CountingChips(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel) << endl;
+			cout << "The minimum number of Chips that must be prepared for the game: " << CountingChips(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel) << endl;
 			NewCounter = CountingChips_Restart();
 		}
 		else 

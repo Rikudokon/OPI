@@ -4,42 +4,42 @@
 #include <cstring>
 
 using namespace std;
-void InputData_Restart(int& NumberOfPlayers, int& RedChipsMaxLevel, int& PlayerMaxLevel, bool& InputDataSuccessfully);
+void InputData_Restart(int& NumberOfPlayers, int& PlayerMaxLevel, int& RedChipsLevel,  bool& InputDataSuccessfully);
 int CheckInputData(string InputData);
 
-void InputData(int& NumberOfPlayers, int& RedChipsMaxLevel, int& PlayerMaxLevel, bool& InputDataSuccessfully)
+void InputData(int& NumberOfPlayers, int& PlayerMaxLevel, int& RedChipsLevel,  bool& InputDataSuccessfully)
 {
 	cout << "ATTENTION! Enter only positive integers!" << endl; 
-	string Input_NumberOfPlayers, Input_RedChipsMaxLevel, Input_PlayerMaxLevel;
+	string Input_NumberOfPlayers, Input_RedChipsLevel, Input_PlayerMaxLevel;
 	cout << "Enter the number of players: "; 
 	cin >> Input_NumberOfPlayers;
 	NumberOfPlayers = CheckInputData(Input_NumberOfPlayers);
 	if (NumberOfPlayers <= 0)
 	{
 		cout << "Error: Invalid input." << endl; 
-		InputData_Restart(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputDataSuccessfully);
+		InputData_Restart(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputDataSuccessfully);
 		return;
 	}
 	else
 	{
 		cout << "Enter the maximum player level: "; 
-		cin >> Input_RedChipsMaxLevel;
-		RedChipsMaxLevel = CheckInputData(Input_RedChipsMaxLevel);
-		if (RedChipsMaxLevel <= 0)
+		cin >> Input_PlayerMaxLevel;
+		PlayerMaxLevel = CheckInputData(Input_PlayerMaxLevel);
+		if (PlayerMaxLevel <= 0)
 		{
 			cout << "Error: Invalid input." << endl; 
-			InputData_Restart(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputDataSuccessfully);
+			InputData_Restart(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputDataSuccessfully);
 			return;
 		}
 		else
 		{
 			cout << "Enter the level of red Chips: "; 
-			cin >> Input_PlayerMaxLevel;
-			PlayerMaxLevel = CheckInputData(Input_PlayerMaxLevel);
-			if (PlayerMaxLevel <= 0)
+			cin >> Input_RedChipsLevel; 
+			RedChipsLevel = CheckInputData(Input_RedChipsLevel);
+			if (RedChipsLevel <= 0)
 			{
 				cout << "Error: Invalid input." << endl;
-				InputData_Restart(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputDataSuccessfully);
+				InputData_Restart(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputDataSuccessfully);
 				return;
 			}
 			else
@@ -64,7 +64,7 @@ int CheckInputData(string InputData)
 		return 0;
 }
 
-void InputData_Restart(int& NumberOfPlayers, int& RedChipsMaxLevel, int& PlayerMaxLevel, bool& InputDataSuccessfully)
+void InputData_Restart(int& NumberOfPlayers, int& PlayerMaxLevel, int& RedChipsLevel,  bool& InputDataSuccessfully)
 {
 	string UserResponse;
 	cout << endl << "Want to start over?" << endl; 
@@ -75,14 +75,14 @@ void InputData_Restart(int& NumberOfPlayers, int& RedChipsMaxLevel, int& PlayerM
 	if (UserResponse == "1")
 	{
 		cout << "--------------------------------------------------" << endl;
-		InputData(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputDataSuccessfully);
+		InputData(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputDataSuccessfully);
 	}
 	else if (UserResponse == "2")
 		return;
 	else
 	{
 		cout << "Error: Enter 1 or 2" << endl;
-		return InputData_Restart(NumberOfPlayers, RedChipsMaxLevel, PlayerMaxLevel, InputDataSuccessfully);
+		return InputData_Restart(NumberOfPlayers, PlayerMaxLevel, RedChipsLevel, InputDataSuccessfully);
 	}
 }
 
